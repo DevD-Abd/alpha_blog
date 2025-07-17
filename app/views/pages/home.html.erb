@@ -1,10 +1,14 @@
-<%# home page %>
-<h1>Welcome to Alpha Blog</h1>
-<%# consistent links about , home , articles %>
-<nav>
-  <ul>
-    <li><%= link_to "Home", root_path %></li>
-    <li><%= link_to "About", about_path %></li>
-    <li><%= link_to "Articles", articles_path %></li>
-  </ul>
-</nav>
+<div id="page-content">
+<div class="jumbotron m-5 text-center text-white">
+  <h1 class="display-4">Alpha Blog</h1>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a class="btn btn-success btn-lg" href="#" role="button">Sign Up!</a>
+</div>
+</div>
+  <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white">
+    <div class="container text-center">
+      <small>Copyright &copy; <%= link_to "Abdullah Ubaid", "https://abdullahubaidd.vercel.app", class: "text-white"%> </small>
+    </div>
+  </footer>
