@@ -1,34 +1,41 @@
-<nav>
-  <ul>
-    <li><%= link_to "Home", root_path %></li>
-    <li><%= link_to "About", about_path %></li>
-    <li><%= link_to "Articles", articles_path %></li>
-  </ul>
-</nav>
-<h1>Articles listing page</h1>
-<table>
-    <thead>
-        <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @articles.each do |article| %>
-        <tr>
-            <td><%= article.title %></td>
-            <td><%= article.description %></td>
-            <td>
-                <%= link_to "Show", article_path(article) %> |
-                <%= link_to "Edit", edit_article_path(article) %> |
-                <%= button_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" }, form: { style: "display:inline;" } %>
-            </td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
-<%# create new article %>
-<p>
-    <%= link_to "Create New Article", new_article_path %>
-</p>
+
+<div class="container mt-4">
+  <!-- Page Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="display-4">Articles</h1>
+    <%= link_to "Create New Article", new_article_path, class: "btn btn-primary" %>
+  </div>
+
+  <% if @articles.any? %>
+    <div class="row g-4">
+      <% @articles.each do |article| %>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title"><%= article.title %></h5>
+              <p class="card-text"><%= truncate(article.description, length: 100) %></p>
+              <div class="mt-auto">
+                <div class="btn-group gap-2 mb-2" role="group">
+                  <%= link_to "Show", article_path(article), class: "btn btn-outline-info btn-sm" %>
+                  <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-warning btn-sm" %>
+                  <%= button_to "Delete", article_path(article), method: :delete, 
+                      data: { confirm: "Are you sure?" }, 
+                      class: "btn btn-outline-danger btn-sm",
+                      form: { style: "display:inline;" } %>
+                </div>
+                <small class="text-muted d-block">Created: <%= article.created_at.strftime('%b %d, %Y %I:%M %p') %></small>
+                <small class="text-muted">Updated: <%= article.updated_at.strftime('%b %d, %Y %I:%M %p') %></small>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="alert alert-info text-center" role="alert">
+      <h4 class="alert-heading">No Articles Found</h4>
+      <p>There are no articles to display. Why not create the first one?</p>
+      <%= link_to "Create Your First Article", new_article_path, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

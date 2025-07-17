@@ -1,20 +1,25 @@
-<%# show article title, description %>
-<nav>
-  <ul>
-    <li><%= link_to "Home", root_path %></li>
-    <li><%= link_to "About", about_path %></li>
-    <li><%= link_to "Articles", articles_path %></li>
-  </ul>
-</nav>
-<h1>Showing Article</h1>
-<p><strong>Title:</strong> <%= @article.title %></p>
-<p><%= @article.description %></p>
 
-<%# edit this article %>
-<p>
-    <%= link_to "Edit this Article", edit_article_path(@article) %>
-</p>
-<%# delete this article %>
-<p>
-    <%= button_to "Delete this Article", article_path(@article), method: :delete, data: { confirm: "Are you sure?" } %>
-</p>
+
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="mb-0">Article Details</h2>
+            <%= link_to "Back to Articles", articles_path, class: "btn btn-outline-secondary btn-sm" %>
+          </div>
+          <hr>
+          <h5 class="fw-semibold mb-2">Title</h5>
+          <p class="mb-3"><%= @article.title %></p>
+          <h5 class="fw-semibold mb-2">Description</h5>
+          <p class="mb-4"><%= @article.description %></p>
+          <div class="d-flex gap-2 mt-3">
+            <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-info btn-sm px-4" %>
+            <%= button_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm px-4" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

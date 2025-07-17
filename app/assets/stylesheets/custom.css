@@ -35,12 +35,14 @@
 
 /* Sticky Footer Classes */
 
+
 html,
 body {
   height: 100%;
+  background-color: #f8f9fa; /* Bootstrap's neutral background */
 }
 
 #page-content {
   flex: 1 0 auto;
-  background-color: grey;
+  background-color: #f8f9fa;
 }

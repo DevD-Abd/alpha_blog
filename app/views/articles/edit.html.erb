@@ -1,24 +1,9 @@
-<%# edit page %>
 
-<h1>Edit Article</h1>
-<% if @article.errors.any? %>
-<h2>The following errors occurred:</h2>
-<ul>
-    <% @article.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-</ul>
-<% end %>
-<%= form_with model: @article, url: article_path(@article), local: true do |form| %>
-<p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-</p>
-<p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-</p>
-<p>
-    <%= form.submit "Update Article" %>
-</p>
-<% end %>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="mb-4">Edit Article</h1>
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>

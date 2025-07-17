@@ -1,5 +1,13 @@
-  <% flash.each do |name, msg| %>
-    <div class="flash <%= name %>">
-      <p><%= msg %></p>
-    </div>
-  <% end %>
+
+<% flash.each do |name, msg| %>
+  <% alert_class = case name.to_sym
+    when :notice then 'alert-info'
+    when :success then 'alert-success'
+    when :error, :alert then 'alert-danger'
+    else 'alert-secondary'
+  end %>
+  <div class="alert <%= alert_class %> alert-dismissible fade show m-3" role="alert">
+    <%= msg %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
