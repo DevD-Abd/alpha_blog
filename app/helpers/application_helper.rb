@@ -4,4 +4,12 @@ module ApplicationHelper
       size = options[:size]
       image_tag("https://www.gravatar.com/avatar/#{email_hash}?s=#{size}", alt: user.username, class: "gravatar rounded-circle", style: "width: #{size}px; height: #{size}px;")
     end
+
+    def current_user
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end
+
+    def logged_in?
+      !current_user.nil?
+    end
 end

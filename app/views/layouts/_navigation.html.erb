@@ -17,13 +17,28 @@
           <%# <a class="nav-link active" aria-current="page" href="#">Articles</a> %>
           <%= link_to "Articles", articles_path, class: "nav-link active" %>
         </li>
-        <li class="nav-item">
-        <%= link_to 'Log in', login_path, class: "nav-link active"%>
-        </li>
-        <li class="nav-item">
-          <%# <a class="nav-link" href="#">Sign Up</a> %>
-          <%= button_to "Logout", logout_path, class: "nav-link", method: :delete %>
-        </li>
+
+        <% if logged_in? %>
+          <li class="nav-item">
+            <%# <a class="nav-link" href="#">Profile</a> %>
+            <%= link_to "Profile", user_path(current_user), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%# <a class="nav-link" href="#">Sign Up</a> %>
+            <%= button_to "Logout", logout_path, class: "nav-link", method: :delete %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%# <a class="nav-link" href="#">Log In</a> %>
+            <%= link_to "Log In", login_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%# <a class="nav-link" href="#">Sign Up</a> %>
+            <%= link_to "Sign Up", signup_path, class: "nav-link" %>
+          </li>
+        <% end %>
+
+        
         
         <%# link t about %>
         <li class="nav-item">
