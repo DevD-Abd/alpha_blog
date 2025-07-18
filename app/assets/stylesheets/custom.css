@@ -1,3 +1,43 @@
+/* Bootstrap-compatible will_paginate styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.25rem;
+}
+.pagination li {
+  margin: 0 2px;
+}
+.pagination li a, .pagination li span {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.9rem;
+  line-height: 1.25;
+  color: #0d6efd;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  transition: background 0.2s, color 0.2s;
+}
+.pagination li.active span, .pagination li.active a {
+  z-index: 1;
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+.pagination li.disabled span, .pagination li.disabled a {
+  color: #adb5bd;
+  pointer-events: none;
+  background-color: #f8f9fa;
+  border-color: #dee2e6;
+}
+.pagination li a:hover, .pagination li a:focus {
+  color: #0a58ca;
+  background-color: #e9ecef;
+  border-color: #0a58ca;
+}
 /* Example overrides */
 .navbar {
   background-color: #000 !important; /* override bootstrap */
@@ -45,4 +85,60 @@ body {
 #page-content {
   flex: 1 0 auto;
   background-color: #f8f9fa;
+}
+
+/* pagination style */
+.digg_pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0;
+}
+.digg_pagination a, .digg_pagination span, .digg_pagination em {
+  padding: 0.4em 0.9em;
+  margin: 0 0.1em;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  display: inline-block;
+}
+.digg_pagination .current {
+  background: #0d6efd;
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid #0d6efd;
+}
+.digg_pagination a {
+  color: #0d6efd;
+  border: 1px solid #dee2e6;
+  background: #fff;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.digg_pagination a:hover, .digg_pagination a:focus {
+  background: #e9ecef;
+  color: #0a58ca;
+  border-color: #0a58ca;
+}
+.digg_pagination .disabled, .digg_pagination span.disabled {
+  color: #adb5bd;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  cursor: not-allowed;
+}
+.digg_pagination .page_info {
+  background: none;
+  color: #6c757d;
+  padding: 0.4em 0.6em;
+  margin-bottom: 0.3em;
+  text-align: center;
+  width: auto;
+}
+.digg_pagination .page_info b {
+  color: #0d6efd;
+  background: #e9ecef;
+  padding: 0.1em 0.25em;
+  border-radius: 0.2em;
 }

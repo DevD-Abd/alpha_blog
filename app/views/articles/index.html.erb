@@ -7,6 +7,9 @@
   </div>
 
   <% if @articles.any? %>
+    <nav class="digg_pagination" aria-label="Articles Pagination">
+      <%= will_paginate @articles, renderer: WillPaginate::ActionView::LinkRenderer %>
+    </nav>
     <div class="row g-4">
       <% @articles.each do |article| %>
         <div class="col-md-6 col-lg-4">

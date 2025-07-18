@@ -22,14 +22,16 @@
                 </li>
               <% end %>
             </ul>
+            <div class="d-flex justify-content-center mt-4">
+              <%= will_paginate @users, renderer: BootstrapPagination::Rails, class: "pagination justify-content-center" %>
+            </div>
           <% else %>
             <p class="text-center text-muted">No users found.</p>
-            <% end %>
-            <div class="d-flex justify-content-end gap-2 mt-4">
-                <%= link_to "Back to Home", root_path, class: "btn btn-outline-secondary px-4" %>
-                <%= link_to "New User", signup_path, class: "btn btn-outline-info px-4" %>
-            </div>
-            </div>
+          <% end %>
+          <div class="d-flex justify-content-end gap-2 mt-4">
+            <%= link_to "Back to Home", root_path, class: "btn btn-outline-secondary px-4" %>
+            <%= link_to "New User", signup_path, class: "btn btn-outline-info px-4" %>
+          </div>
         </div>
       </div>
     </div>
