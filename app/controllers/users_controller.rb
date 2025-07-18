@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:edit, :update, :show]
+    before_action :require_user, only: [:edit, :update]
+    before_action :same_user, only: [:edit, :update]
+    
     def new
         @user = User.new
     end
@@ -48,4 +51,10 @@ class UsersController < ApplicationController
     #     redirect_to root_path
     end
     
+    def same_user
+        if @user != current_user
+            flash[:danger] = "You can only edit your own profile."
+            redirect_to @user
+        end
+    end
 end
