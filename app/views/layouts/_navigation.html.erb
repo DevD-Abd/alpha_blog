@@ -17,6 +17,14 @@
           <%# <a class="nav-link active" aria-current="page" href="#">Articles</a> %>
           <%= link_to "Articles", articles_path, class: "nav-link active" %>
         </li>
+        <li class="nav-item">
+        <%= link_to 'Log in', login_path, class: "nav-link active"%>
+        </li>
+        <li class="nav-item">
+          <%# <a class="nav-link" href="#">Sign Up</a> %>
+          <%= button_to "Logout", logout_path, class: "nav-link", method: :delete %>
+        </li>
+        
         <%# link t about %>
         <li class="nav-item">
           <%# <a class="nav-link" href="#">About</a> %>
