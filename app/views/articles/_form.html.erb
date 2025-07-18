@@ -6,16 +6,7 @@
     <div class="col-md-8">
       <div class="card shadow-sm border-0">
         <div class="card-body">
-          <% if @article.errors.any? %>
-            <div class="alert alert-info mb-4">
-              <h5 class="mb-2">Please fix the following errors:</h5>
-              <ul class="mb-0">
-                <% @article.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
+        <%= render 'shared/errors', obj: @article %>
           <%= form_with(model: @article, local: true) do |form| %>
             <div class="mb-3">
               <%= form.label :title, class: "form-label fw-semibold" %>

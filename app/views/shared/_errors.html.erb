@@ -1,0 +1,10 @@
+          <% if obj.errors.any? %>
+            <div class="alert alert-info mb-4">
+              <h5 class="mb-2">Please fix the following errors:</h5>
+              <ul class="mb-0">
+                <% obj.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
