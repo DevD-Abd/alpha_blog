@@ -29,7 +29,7 @@
             <p class="text-center text-muted">No users found.</p>
           <% end %>
           <div class="d-flex justify-content-end gap-2 mt-4">
-            <%= link_to "Back to Home", root_path, class: "btn btn-outline-secondary px-4" %>
+            <%= link_to "Back", request.referer || root_path, class: "btn btn-outline-secondary px-4" %>
             <%= link_to "New User", signup_path, class: "btn btn-outline-info px-4" %>
           </div>
         </div>
