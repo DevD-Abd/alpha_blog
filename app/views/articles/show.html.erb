@@ -18,12 +18,11 @@
             <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-info btn-sm px-4" %>
             <%= button_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm px-4" %>
           </div>
-                <div class="mt-4">
-                  <p class="mb-0">
-                    <span class="badge bg-secondary">
-                      By: <%= @article.user.username.capitalize %>
-                    </span>
-                  </p>
+                <div class="mt-4 d-flex align-items-center gap-2">
+                  <%= gravatar_for(@article.user, size: 40, class: "rounded-circle border border-2 border-secondary") %>
+                  <span class="badge bg-secondary fs-6 py-2 px-3">
+                    By: <%= @article.user.username.capitalize %>
+                  </span>
                 </div>
 
         </div>
