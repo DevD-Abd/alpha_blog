@@ -7,7 +7,7 @@
       <div class="card shadow-sm border-0">
         <div class="card-body">
         <%= render 'shared/errors', obj: @article %>
-          <%= form_with(model: @article, local: true) do |form| %>
+          <%= form_with(model: @article, local: true, data: { turbo: false }) do |form| %>
             <div class="mb-3">
               <%= form.label :title, class: "form-label fw-semibold" %>
               <%= form.text_field :title, class: "form-control" %>
