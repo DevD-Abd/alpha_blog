@@ -2,6 +2,7 @@ class UsersController < ApplicationController
     before_action :set_user, only: [:edit, :update, :show, :destroy]
     before_action :require_user, only: [:edit, :update]
     before_action :same_user, only: [:edit, :update, :destroy]
+    before_action :admin, only: [:edit, :update]
     
     def new
         @user = User.new
@@ -63,9 +64,18 @@ class UsersController < ApplicationController
     end
     
     def same_user
-        if @user != current_user
-            flash[:danger] = "You can only edit your own profile."
+        if @user != current_user  && !current_user.admin
+            flash[:danger] = "You can only edit or delete your own profile."
             redirect_to @user
         end
     end
+
+    def admin
+        if current_user.admin
+            flash[:danger] = "You can only delete but not edit other users."
+            redirect_to users_path
+        end
+    end
+
+
 end
