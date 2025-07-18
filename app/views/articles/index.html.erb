@@ -25,6 +25,7 @@
                 </div>
                 <small class="text-muted d-block">Created: <%= article.created_at.strftime('%b %d, %Y %I:%M %p') %></small>
                 <small class="text-muted">Updated: <%= article.updated_at.strftime('%b %d, %Y %I:%M %p') %></small>
+                <p class="mb-0"><span class="badge bg-secondary">By: <%= article.user.username.capitalize %></span></p>
               </div>
             </div>
           </div>
