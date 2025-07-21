@@ -3,7 +3,7 @@
   <!-- Page Header -->
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="display-4">Categories</h1>
-    <% if logged_in? %>
+    <% if logged_in? && current_user.admin %>
       <%= link_to "Create New Category", new_category_path, class: "btn btn-primary" %>
     <% end %>
   </div>
@@ -67,11 +67,7 @@
     <div class="alert alert-info text-center" role="alert">
       <h4 class="alert-heading"><i class="bi bi-bookmark me-2"></i>No Categories Found</h4>
       <p>There are no categories to display. Categories help organize your articles by topic.</p>
-      <% if logged_in? %>
-        <%= link_to "Create Your First Category", new_category_path, class: "btn btn-primary" %>
-      <% else %>
-        <p class="mb-0">Please log in to create categories.</p>
-      <% end %>
+
     </div>
   <% end %>
 </div>

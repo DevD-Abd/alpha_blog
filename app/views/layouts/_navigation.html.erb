@@ -17,6 +17,20 @@
           <%# <a class="nav-link active" aria-current="page" href="#">Articles</a> %>
           <%= link_to "Articles", articles_path, class: "nav-link active" %>
         </li>
+        
+        <%# Categories dropdown %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-bookmark-fill"></i> Categories
+          </a>
+          <ul class="dropdown-menu">
+            <%= link_to "All Categories", categories_path, class: "dropdown-item" %>
+            <% if logged_in? && current_user.admin? %>
+              <li><hr class="dropdown-divider"></li>
+              <%= link_to "Create New Category", new_category_path, class: "dropdown-item" %>
+            <% end %>
+          </ul>
+        </li>
 
         <% if logged_in? %>
                   <li class="nav-item dropdown">
