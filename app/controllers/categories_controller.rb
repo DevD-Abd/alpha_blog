@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-    before_action :set_category, only: [:show]
+    before_action :set_category, only: [:show, :edit, :update, :destroy]
     before_action :require_admin, except: [:index, :show]
     
     def new
@@ -13,6 +13,9 @@ class CategoriesController < ApplicationController
     def show
     end
     
+    def edit
+    end
+    
     def create
         @category = Category.new(category_params)
         if @category.save
@@ -21,6 +24,21 @@ class CategoriesController < ApplicationController
         else
             render 'new'
         end
+    end
+    
+    def update
+        if @category.update(category_params)
+            flash[:notice] = "Category was updated successfully"
+            redirect_to @category
+        else
+            render 'edit'
+        end
+    end
+    
+    def destroy
+        @category.destroy
+        flash[:notice] = "Category was deleted successfully"
+        redirect_to categories_path
     end
     
     private
