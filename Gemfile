@@ -20,7 +20,7 @@ group :production do
 end
 
 group :development, :test do
-  gem "sqlite3", ">= 2.1"
+  gem "sqlite3", "~> 2.1.0"
 end
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 gem "bcrypt", "~> 3.1.7"
